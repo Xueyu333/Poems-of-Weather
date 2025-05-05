@@ -1,0 +1,1198 @@
+/* 内页正面容器 - 右侧显示文字 */
+.page-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    z-index: 2;
+    background-color: white;
+    /* background-image: linear-gradient(to bottom, #3381ff, hsl(217, 100%, 71%), #64c1ff); */
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    /* border: .5px solid black; */
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+
+/* 内页背面容器 - 左侧显示图片 */
+.page-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    z-index: 1;
+    background-color: white;
+    background-image: linear-gradient(to bottom, #3381ff, hsl(217, 100%, 71%), #64c1ff); 
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    /* border: .5px solid black; */
+    transform: rotateY(180deg);
+    overflow: hidden; /* 确保图片不溢出边界 */
+}
+
+
+
+/* 页面内容包装器 */
+.page-content-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+   
+}
+
+/* 左页样式 */
+.page-left {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+   
+}
+
+/* 右页样式 */
+.page-right {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 图片样式 */
+.page-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    
+    
+}
+
+
+/* 诗集标题容器样式 */
+.poems-of-the-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    height: 100%;
+    width: 100%;
+    padding-left: 50px; /* 控制与左边缘的距离 */
+    padding-top: 0px; /* 控制与上边缘的距离 */
+}
+/* 标题文本样式 */
+/* .poems-of-the { */
+    /* font-family: 'Playfair Display', serif; 优雅的衬线字体 */
+    /* color: white; */
+    /* margin: 5px 0; */
+    /* letter-spacing: 2px; 字母间距 */
+    /* text-transform: uppercase; 全大写 */
+    /* font-size: 30px; 基本字体大小 */
+    /* font-weight: 700; 添加这一行来使字体变粗 */
+/* } */
+
+/* 标题文本样式 */
+.poems-of-the {
+  font-family: 'Playfair Display', serif; 
+  color: white;
+  margin: 5px 0;
+  letter-spacing: 2px; 
+  text-transform: uppercase;
+  font-size: 35px; 
+  font-weight: 500; 
+  position: relative;
+  filter: url('#gooey'); /* apply SVG filter */
+  display: flex;
+  justify-content: flex-start;
+  overflow: visible;
+}
+
+.poems-of-the span {
+  display: inline-block;
+  animation: GooeyEffect 8s infinite ease-in-out;
+  transform-origin: center;
+  will-change: filter, transform;
+  animation-delay: calc(var(--i) * 0.15s);
+  position: relative;
+}
+
+@keyframes GooeyEffect {
+  0%, 100% {
+      filter: blur(0px);
+      transform: translateY(0) scale(1);
+      opacity: 1;
+  }
+  25% {
+      filter: blur(2px);
+      transform: translateY(-1px) scale(1.05);
+      opacity: 0.9;
+  }
+  40% {
+      filter: blur(3px);
+      transform: translateY(1px) scale(1.1);
+      opacity: 0.85;
+  }
+  65% {
+      filter: blur(2px);
+      transform: translateY(-1px) scale(0.95);
+      opacity: 0.9;
+  }
+  80% {
+      filter: blur(1px);
+      transform: translateY(0) scale(1);
+      opacity: 0.95;
+  }
+}
+
+
+
+
+
+
+
+/* 文本内容 */
+.page-content {
+  padding: 100px 100px 100px 100px; /* 上 右 下 左 */
+    height: 100%;
+    max-width: 800px;
+    text-align: center;
+    box-sizing: border-box;
+
+}
+
+.page-content h2 {
+  font-family: 'Playfair Display', serif; /* 与封面标题保持一致 */
+  margin-bottom: 10px;
+  /* margin-top: 0px; 负值会使标题向上移动 */
+  color: #333;
+}
+
+        
+    
+/* 封面正面样式 */
+.cover-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden; /* 关键：隐藏背面 */
+    z-index: 2;
+    background-image: linear-gradient(to bottom, #3381ff, hsl(217, 100%, 71%), #64c1ff);
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    /* border: .5px solid black; */
+    transform-style: preserve-3d;
+    
+}
+/* 封面背面样式 - 也需要显示图片 */
+.cover-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    z-index: 1;
+    background-color: white;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    /* border: .5px solid black; */
+    transform: rotateY(180deg);
+    overflow: hidden; /* 确保图片不溢出边界 */
+}
+
+
+
+/* 封底正面样式 */
+.back-cover-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    z-index: 2;
+    background-color: #2c5fb8;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    /* border: .5px solid black; */
+}
+
+/* 封底背面样式 */
+.back-cover-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    z-index: 1;
+    background-image: linear-gradient(to bottom, #3381ff, hsl(217, 100%, 71%), #64c1ff);
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    /* border: .5px solid black; */
+    transform: rotateY(180deg);
+}
+
+/* 封底内容 */
+.back-cover-content {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+
+        
+:root{
+    --w: 240px;
+    --h: 240px;
+}
+
+
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: linear-gradient(to bottom, #3381ff, hsl(217, 100%, 74%), #3dd6f5);
+    /* background-color: #172994; */
+    transition: background-image 1.5s ease-in-out;
+
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+}
+
+   
+/* 添加背景容器相关样式 */
+#background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+#bg-layer1, #bg-layer2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 1.5s ease-in-out;
+}
+
+#bg-layer2 {
+    opacity: 0; /* 初始时第二层是透明的 */
+}
+
+
+
+
+
+#book{
+    height: var(--h);
+    margin-top: -30px; /* 设置书本离顶部的距离 */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+    perspective: 1600px;
+    transform-style: preserve-3d;
+    transform-origin: center; /* 确保变换以中心为原点 */
+    z-index: 10;
+    
+    
+   
+}
+
+.book-cover{
+    height: calc(var(--h) + 300px);
+    width: calc(var(--w) + 300px);
+    position: absolute;
+    background-image: linear-gradient(to bottom, #3381ff, hsl(217, 100%, 71%), #64c1ff);
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    transition: 1s;
+    transform-origin: left;
+    backface-visibility: visible;
+    /* border: .5px solid black; */
+    /*正面的位置*/
+    left: -200px;
+    top: -200px;
+    transform-style: preserve-3d; /* 使子元素保持3D效果 */
+      /* 添加书页阴影 */
+    box-shadow: 0 3px 15px rgba(0, 15, 109, 0.05);
+   
+   
+}
+
+
+    
+
+.book-page {
+    height: var(--h);
+    width: var(--w);
+    position: absolute;
+    z-index: 100;
+    transition: 1s;
+    transform-origin: -25px;
+    background-size: cover;
+    backface-visibility: visible;
+}
+
+
+
+#control {
+  z-index: 15; /* 比云和书本都高 */
+  pointer-events: auto;
+    margin-top: 650px;
+    user-select: none;
+}
+
+
+/* 基础按钮样式 */
+#control button {
+   display: inline-block;
+   width: 80px;
+   height: 80px;
+   border: 0;
+   margin: 0px 30px;
+   color: white;
+   font-size: 30px;
+   font-weight: bold;
+   border-radius: 50%;
+   background-color: rgba(255,255,255, 0.3); /* 降低默认不透明度 */
+   outline: none;
+   cursor: pointer;
+   transition: all 0.3s ease;
+}
+
+/* 启用状态的按钮 */
+#control button.enabled-button {
+    background-color: rgba(255, 255, 255, 0.4);
+    color: white;
+}
+
+/* 悬停效果 - 增加优先级 */
+#control button:hover:not(.disabled-button) {
+   background-color: rgba(255, 255, 255, 0.7) !important; /* 提高对比度 */
+   color: rgb(132, 200, 255);
+   transform: scale(1.05);
+}
+
+/* 点击效果 */
+#control button:active:not(.disabled-button) {
+   transform: scale(0.95);
+}
+
+/* 禁用状态的按钮 */
+#control button.disabled-button {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: darkgray;
+    cursor: default; /* 改变鼠标样式 */
+}
+
+/* 隐藏按钮 */
+#control button.hidden-button {
+    display: none;
+}
+
+
+/* 音频控制按钮样式 */
+#sound-control {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 8px; /* 为图标提供一些内边距 */
+}
+
+#sound-control:hover {
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(1.05);
+}
+
+#sound-control:active {
+  transform: scale(0.95);
+}
+
+/* 声音图标样式 */
+.sound-icon {
+  width: 110%;
+  height: 110%;
+  object-fit: contain; /* 确保图像保持比例 */
+}
+
+/* 音量滑块容器 - 可选 */
+#volume-control {
+    position: fixed;
+    bottom: 70px;
+    right: 30px;
+    width: 40px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    display: flex; /* 默认隐藏 */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    z-index: 999;
+}
+
+/* 音量滑块样式 - 可选 */
+#volume-slider {
+    -webkit-appearance: none;
+    width: 80px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 2px;
+    transform: rotate(-90deg);
+    margin: 0;
+}
+
+#volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+    transition: width 0.3s ease, height 0.3s ease, background 0.3s ease, transform 0.3s ease;
+}
+
+#volume-slider::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+    border: none;
+    transition: width 0.3s ease, height 0.3s ease, background 0.3s ease, transform 0.3s ease;
+}
+
+
+/* WebKit 浏览器的滑块按钮悬停效果 - 增加放大效果 */
+#volume-slider::-webkit-slider-thumb:hover {
+  width: 16px;
+  height: 16px;
+  background: #78c9ff; /* 蓝色 */
+  transform: scale(1.1); /* 额外的放大效果 */
+  /* box-shadow: 0 0 5px rgba(100, 193, 255, 0.6); 添加发光效果 */
+}
+
+/* Firefox 浏览器的滑块按钮悬停效果 - 增加放大效果 */
+#volume-slider::-moz-range-thumb:hover {
+  width: 16px;
+  height: 16px;
+  background: #78c9ff; /* 蓝色 */
+  transform: scale(1.1); /* 额外的放大效果 */
+  /* box-shadow: 0 0 5px rgba(100, 193, 255, 0.6); 添加发光效果 */
+}
+
+/* WebKit 浏览器的滑块按钮激活效果 - 点击状态 */
+#volume-slider::-webkit-slider-thumb:active {
+  width: 18px;
+  height: 18px;
+  background: rgb(132, 200, 255); /* 更深的蓝色 */
+  transform: scale(1.1); /* 更大的放大效果 */
+  /* box-shadow: 0 0 8px rgba(51, 129, 255, 0.8); 更强的发光效果 */
+}
+
+/* Firefox 浏览器的滑块按钮激活效果 - 点击状态 */
+#volume-slider::-moz-range-thumb:active {
+  width: 18px;
+  height: 18px;
+  background: rgb(132, 200, 255); /* 更深的蓝色 */
+  transform: scale(1.1); /* 更大的放大效果 */
+  /* box-shadow: 0 0 8px rgba(51, 129, 255, 0.8); 更强的发光效果 */
+}
+
+
+
+
+/* 在 style.css 中添加/修改按钮样式 */
+#restart-button {
+    position: fixed;
+    bottom: 55%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 40px;
+    border: 0;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    /* 添加过渡效果 */
+    transition: all 0.5s ease;
+    opacity: 0; /* 默认透明 */
+    display: block; /* 使用透明度而不是 display:none 隐藏 */
+    pointer-events: none; /* 透明时不响应点击事件 */
+    z-index: 1001;
+}
+
+#restart-button:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    transform: translateX(-50%) scale(1.05);
+}
+
+#restart-button:active {
+    transform: translateX(-50%) scale(0.95);
+}
+
+/* 按钮显示状态类 */
+#restart-button.visible {
+    opacity: 1;
+    pointer-events: auto; /* 可以点击 */
+}
+
+
+
+/* Author attribution animation */
+.poem-attribution {
+  font-family: 'Playfair Display', serif;
+    font-size: 0.8em;
+    color: #666;
+    font-style: italic;
+    display: block;
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in forwards;
+    animation-delay: 2s; /* Starts after most letters have settled */
+  }
+  
+  /* Fade-in animation for author attribution */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+
+
+
+  .rain-text, .sunny-text, .wind-text, .snow-text, .fog-text, .cloud-text {
+    font-family: 'Merriweather', serif;
+}
+
+
+
+
+/* Rain letter animation container */
+.rain-text {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Individual letter styling */
+  .rain-letter {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(-200px);
+    animation: rainDrop 2s forwards;
+  }
+  
+  /* Keep spaces visible */
+  .rain-space {
+    display: inline-block;
+    width: 0.25em;
+  }
+  
+  /* The rain drop animation */
+  @keyframes rainDrop {
+    0% {
+      opacity: 0;
+      transform: translateY(-200px);
+    }
+    60% {
+      opacity: 0.7;
+      transform: translateY(5px);
+    }
+    80% {
+      transform: translateY(-2px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Space preservation for poetry */
+  .rain-text br {
+    display: block;
+    content: "";
+    margin-top: 0.1em;
+  }
+
+
+
+
+
+
+  
+  /* Wind letter animation container */
+.wind-text {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Individual letter styling for wind animation */
+  .wind-letter {
+    display: inline-block;
+    opacity: 0;
+    transform: translate(200px, -150px) rotate(45deg); /* Diagonal starting position from top-right */
+    
+    animation: windBlow 2s cubic-bezier(0.37, 0, 0.63, 1) forwards; /* More natural curve */
+    /* animation: windBlow 2s forwards; */
+  }
+  
+  /* Keep spaces visible */
+  .wind-space {
+    display: inline-block;
+    width: 0.25em;
+  }
+  
+  /* The wind blow animation with diagonal path */
+  @keyframes windBlow {
+    0% {
+      opacity: 0;
+      transform: translate(200px, -150px) rotate(45deg); /* Start from top-right */
+    }
+   
+    /* 70% {
+      opacity: 0.9;
+      transform: translate(20px, -15px) rotate(-45deg); /* Approach final position */
+    
+  
+    100% {
+      opacity: 1;
+      transform: translate(0, 0) rotate(0deg); /* Final resting position */
+    }
+  }
+  
+  /* Space preservation for poetry */
+  .wind-text br {
+    display: block;
+    content: "";
+    margin-top: 0.1em;
+  }
+
+
+/* Snow letter animation container */
+.snow-text {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+/* Individual letter styling for snow animation */
+.snow-letter {
+  display: inline-block;
+  opacity: 0;
+  transform-style: preserve-3d;
+  transform: translateY(-200px) rotateX(0deg) rotateY(0deg) rotateZ(45deg);
+
+  animation: snowFall 3s ease-in-out forwards;
+  will-change: transform, opacity;
+  /* backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased; */
+}
+
+/* Keep spaces visible */
+.snow-space {
+  display: inline-block;
+  width: 0.25em;
+}
+
+/* The improved snow fall animation - smoother with 3D rotation */
+@keyframes snowFall {
+  0% {
+    opacity: 0;
+    transform: translateY(-200px) rotateX(60deg) rotateY(45deg) rotateZ(120deg);
+  }
+
+  
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+}
+
+/* Space preservation for poetry */
+.snow-text br {
+  display: block;
+  content: "";
+  margin-top: 0.1em;
+}
+
+
+
+/* Fog letter animation container */
+.fog-text {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+/* Individual letter styling for fog animation */
+.fog-letter {
+  display: inline-block;
+  opacity: 0;
+  filter: blur(12px);
+  color: rgba(255, 255, 255, 0.1);
+  animation: fogReveal 3.5s ease-in-out forwards;
+  will-change: opacity, filter;
+}
+
+/* Keep spaces visible */
+.fog-space {
+  display: inline-block;
+  width: 0.25em;
+}
+
+/* The fog reveal animation */
+@keyframes fogReveal {
+  0% {
+    opacity: 0;
+    filter: blur(12px);
+    color: rgba(255, 255, 255, 0.1);
+  }
+  30% {
+    opacity: 0.4;
+    filter: blur(8px);
+    color: rgba(50, 50, 50, 0.3);
+  }
+  60% {
+    opacity: 0.7;
+    filter: blur(5px);
+    color: rgba(50, 50, 50, 0.6);
+  }
+  80% {
+    opacity: 0.9;
+    filter: blur(2px);
+    color: rgba(50, 50, 50, 0.9);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    color: inherit;
+  }
+}
+
+/* Space preservation for poetry */
+.fog-text br {
+  display: block;
+  content: "";
+  margin-top: 0.1em;
+}
+
+
+/* Cloud letter animation container */
+.cloud-text {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+/* Individual letter styling for cloud animation */
+.cloud-letter {
+  display: inline-block;
+  opacity: 0;
+  filter: blur(8px);
+  transform-origin: center;
+  position: relative;
+  animation: cloudReveal 4s ease-in-out forwards;
+  will-change: transform, opacity, filter;
+}
+
+/* Keep spaces visible */
+.cloud-space {
+  display: inline-block;
+  width: 0.25em;
+}
+
+/* The cloud reveal animation */
+@keyframes cloudReveal {
+  0% {
+    opacity: 0.2;
+    filter: blur(50px);
+    transform: translate(var(--rand-x), var(--rand-y)) rotate(var(--rand-rotate)) scale(var(--rand-scale));
+  }
+
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+}
+
+/* Space preservation for poetry */
+.cloud-text br {
+  display: block;
+  content: "";
+  margin-top: 0.1em;
+}
+
+
+
+
+/* 修改 CSS 变量 */
+:root {
+  --sunny-glow-color: #FFEC8B; /* 更柔和的黄色，避免橙色过渡 */
+  --sunny-glow-color-light: white;
+}
+
+/* 在文本容器级别处理整体显示 */
+.sunny-text {
+  opacity: 0;
+  filter: blur(10px);
+  animation: showSunny 0.3s forwards;
+  animation-delay: 0.05s;
+}
+@keyframes showSunny {
+  to { opacity: 1;
+    filter: blur(0px); }
+}
+
+
+/* 简化字母样式 */
+.sunny-letter {
+  display: inline-block;
+  position: relative;
+  color: white; /* 直接使用白色而不是透明 */
+  animation: sunnyNeon 3s ease-out forwards; /* 添加 ease-out 缓动 */
+  will-change: text-shadow, color;
+}
+
+@keyframes sunnyNeon {
+  0% {
+    color: white;
+    text-shadow: 
+ 
+      0 0 25px var(--sunny-glow-color-light),
+      0 0 35px var(--sunny-glow-color),
+      0 0 50px var(--sunny-glow-color);
+  }
+
+  50% {
+    color: rgb(255, 255, 255);
+    text-shadow: 
+     
+      0 0 25px var(--sunny-glow-color-light),
+      0 0 40px var(--sunny-glow-color),
+      0 0 100px var(--sunny-glow-color);
+  }
+
+
+
+  
+  100% {
+    color: #222;
+    text-shadow: 
+    0 0 0px white,
+   
+    0 0 0px var(--sunny-glow-color-light),
+    0 0 0px var(--sunny-glow-color),
+    0 0 200px var(--sunny-glow-color);
+  }
+}
+
+
+/* Keep spaces visible */
+.sunny-space {
+  display: inline-block;
+  width: 0.25em;
+}
+
+/* Space preservation for poetry */
+.sunny-text br {
+  display: block;
+  content: "";
+  margin-top: 0.1em;
+}
+
+
+
+
+/* Special button styles for snowy weather */
+body.snowy-weather #control button {
+  background-color: rgba(0, 0, 0, 0.4); /* Light blue-gray with higher opacity */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Stronger shadow for contrast */
+}
+
+body.snowy-weather #control button:hover:not(.disabled-button) {
+  background-color: rgba(0, 0, 0, 0.5) !important; /* Darker when hovering */
+  color: rgb(63, 168, 255);
+}
+
+body.snowy-weather #sound-control {
+  background-color:  rgba(0, 0, 0, 0.4); /* Match the navigation buttons */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.snowy-weather #sound-control:hover {
+  background-color: rgba(0, 0, 0, 0.5) /* Darker when hovering */
+}
+
+body.snowy-weather #volume-control {
+  background-color:  rgba(0, 0, 0, 0.4);  /* Subtle background for volume control */
+}
+
+/* Style for the volume slider in snowy weather */
+body.snowy-weather #volume-slider {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* slider圆圈 */
+body.snowy-weather #volume-slider::-webkit-slider-thumb {
+  background-color: rgba(255, 255, 255, 0.9); /* Darker thumb for contrast */
+}
+
+/* Add hover effect for WebKit browsers */
+body.snowy-weather #volume-slider::-webkit-slider-thumb:hover {
+  background-color: rgb(63, 168, 255); /* Blue color to match button hover */
+  width: 16px;
+  height: 16px;
+  transform: scale(1.1);
+}
+
+/* Add active effect for WebKit browsers */
+body.snowy-weather #volume-slider::-webkit-slider-thumb:active {
+  background-color: rgb(100, 190, 255);
+  width: 18px;
+  height: 18px;
+}
+
+/* Add Firefox support as well */
+body.snowy-weather #volume-slider::-moz-range-thumb {
+  background-color: rgba(255, 255, 255, 0.9); /* Darker thumb for contrast */
+}
+
+body.snowy-weather #volume-slider::-moz-range-thumb:hover {
+  background-color: rgb(63, 168, 255);
+  width: 16px;
+  height: 16px;
+  transform: scale(1.1);
+}
+
+body.snowy-weather #volume-slider::-moz-range-thumb:active {
+  background-color: rgb(100, 190, 255);
+  width: 18px;
+  height: 18px;
+}
+
+
+
+
+  /* 云效果的样式 */
+  #cloud-viewport {
+    position: fixed; /* 固定定位，覆盖整个视口 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    perspective: 1200px;
+    z-index: 5; /* 确保在背景上但在书本下 */
+    pointer-events: auto; /* 不拦截鼠标事件 */
+}
+
+#cloud-world {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -400px; 
+    margin-top: -400px; 
+    height: 800px;  
+    width: 800px;  
+    transform-style: preserve-3d;
+}
+
+.cloudBase {
+    position: absolute;
+    left: 400px;  
+    top: 400px;    
+    width: 20px;
+    height: 20px;
+    margin-left: -10px;
+    margin-top: -10px;
+    transform-style: preserve-3d;
+}
+
+.cloudLayer {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 400px;   
+    height: 400px; 
+    margin-left: -200px;
+    margin-top: -200px;
+    transition: opacity .5s ease-out;
+}
+
+.cloud-controls {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 50;
+}
+
+.cloud-controls button {
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    padding: 8px 12px;
+    margin: 0 5px;
+    border-radius: 4px;
+    cursor: pointer;
+
+    color: #333;                 /* 文字颜色 - 深灰色 */
+    font-family: Arial, sans-serif;  /* 字体 */
+    font-size: 14px;             /* 字体大小 */
+    font-weight: bold;           /* 粗体 */
+}
+
+.cloud-controls button:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.button-group {
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: flex-end;
+}
+
+.slider-control {
+    margin-top: 10px;
+    background: rgba(0,0,0,0.3);
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    font-family: Arial, sans-serif;  /* 字体 */
+    font-size: 14px;             /* 字体大小 */
+   font-weight: bold;           /* 粗体 */
+}
+
+.slider-control label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+
+
+/* 云聚集滑块样式，基于音量滑块样式改编为水平方向 */
+#cluster-slider {
+-webkit-appearance: none;
+width: 100%; /* 水平方向，占满容器 */
+height: 8px;
+background: rgba(255, 255, 255, 0.5);
+border-radius: 5px;
+margin: 10px 0; /* 上下边距 */
+}
+
+#cluster-slider::-webkit-slider-thumb {
+-webkit-appearance: none;
+width: 12px;
+height: 12px;
+border-radius: 50%;
+background: white;
+cursor: pointer;
+transition: width 0.3s ease, height 0.3s ease, background 0.3s ease, transform 0.3s ease;
+}
+
+#cluster-slider::-moz-range-thumb {
+width: 12px;
+height: 12px;
+border-radius: 50%;
+background: white;
+cursor: pointer;
+border: none;
+transition: width 0.3s ease, height 0.3s ease, background 0.3s ease, transform 0.3s ease;
+}
+
+/* WebKit 浏览器的滑块按钮悬停效果 - 增加放大效果 */
+#cluster-slider::-webkit-slider-thumb:hover {
+width: 16px;
+height: 16px;
+background: #78c9ff; /* 蓝色 */
+transform: scale(1.1); /* 额外的放大效果 */
+}
+
+/* Firefox 浏览器的滑块按钮悬停效果 - 增加放大效果 */
+#cluster-slider::-moz-range-thumb:hover {
+width: 16px;
+height: 16px;
+background: #78c9ff; /* 蓝色 */
+transform: scale(1.1); /* 额外的放大效果 */
+}
+
+/* WebKit 浏览器的滑块按钮激活效果 - 点击状态 */
+#cluster-slider::-webkit-slider-thumb:active {
+width: 18px;
+height: 18px;
+background: rgb(132, 200, 255); /* 更深的蓝色 */
+transform: scale(1.1); /* 更大的放大效果 */
+}
+
+/* Firefox 浏览器的滑块按钮激活效果 - 点击状态 */
+#cluster-slider::-moz-range-thumb:active {
+width: 18px;
+height: 18px;
+background: rgb(132, 200, 255); /* 更深的蓝色 */
+transform: scale(1.1); /* 更大的放大效果 */
+}
+
+
+
+

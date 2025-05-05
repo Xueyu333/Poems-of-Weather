@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="gooey-effect.js"></script>
+ 
+</head>
+<body>
+    <!-- 添加云效果的容器 -->
+    <div id="cloud-viewport">
+        <div id="cloud-world"></div>
+    </div>
+    
+    <!-- 云效果的控制按钮 -->
+    <div class="cloud-controls">
+        <div class="button-group">
+            <button onclick="window.cloudApp.addMoreClouds()">Add Clouds</button>
+            <button onclick="window.cloudApp.removeClouds()">Remove Clouds</button>
+        </div>
+        
+        <div class="slider-control">
+            <label for="cluster-slider">Cloud Clustering: <span id="cluster-value">50</span>%</label>
+            <input type="range" id="cluster-slider" min="10" max="90" value="50" 
+                   oninput="window.cloudApp.adjustClustering(this.value)">
+        </div>
+    </div>
+
+    <div id="book">
+        <!-- 封面页 (单面) -->
+        <div class="book-cover one-page">
+            <div class="cover-front">
+                <div class="poems-of-the-container">
+                    <p class="poems-of-the">Poems of the</p>
+                    <p class="poems-of-the">Weather</p>
+                </div>
+            </div>
+            <!-- 封面背面 - 将显示第一张图片 -->
+            <div class="cover-back">
+                <div class="page-image" style="background-image: url('image/rainy.jpg');"></div>
+            </div>
+        </div>
+
+        <!-- 第二页 -->
+        <div class="book-cover one-page">
+            <!-- 第二页正面 - 显示第一首诗 -->
+            <div class="page-front">
+                <div class="page-content">
+                    <h2>Title</h2>
+                    <p>Loading poem...</p>
+                </div>
+            </div>
+            <!-- 第二页背面 - 显示第二张图片 -->
+            <div class="page-back">
+                <div class="page-image" style="background-image: url('image/sunny.jpg');"></div>
+            </div>
+        </div>
+
+        <!-- 第三页 -->
+        <div class="book-cover one-page">
+            <!-- 第三页正面 - 显示第二首诗 -->
+            <div class="page-front">
+                <div class="page-content">
+                    <h2>Sunny Day</h2>
+                    <p>The sun arrives with open hands,<br>
+                        It lifts the light from where I stand.</p>
+                </div>
+            </div>
+            <!-- 第三页背面 - 显示第三张图片 -->
+            <div class="page-back">
+                <div class="page-image" style="background-image: url('image/foggy.jpg');"></div>
+            </div>
+        </div>
+
+        <!-- 第四页 -->
+        <div class="book-cover one-page">
+            <!-- 第四页正面 - 显示第三首诗 -->
+            <div class="page-front">
+                <div class="page-content">
+                    <h2>Foggy Day</h2>
+                    <p>The world dissolves in silver air,<br>
+                        Steps are lost—but I don’t care.</p>
+                </div>
+            </div>
+            <!-- 第四页背面 - 显示第四张图 -->
+            <div class="page-back">
+                <div class="page-image" style="background-image: url('image/cloudy.jpg');"></div>
+            </div>
+        </div>
+
+        <!-- 第五页 -->
+        <div class="book-cover one-page">
+            <!-- 第五页正面 - 显示第四首诗 -->
+            <div class="page-front">
+                <div class="page-content">
+                    <h2>Cloudy Day</h2>
+                    <p>The sky wears gray like heavy wool,<br>
+                        A day half-bright, and never full.</p>
+                </div>
+            </div>
+            <!-- 第五页背面 - 显示第五张图 -->
+            <div class="page-back">
+                <div class="page-image" style="background-image: url('image/snowy.jpg');"></div>
+            </div>
+        </div>
+
+        <!-- 第六页 -->
+        <div class="book-cover one-page">
+            <!-- 第六页正面 - 显示第五首诗 -->
+            <div class="page-front">
+                <div class="page-content">
+                    <h2>Snowy Day</h2>
+                    <p>Snowflakes dance on silent ground,<br>
+                        Soft and slow, they make no sound.</p>
+                </div>
+            </div>
+            <!-- 第六页背面 - 显示第六张图 -->
+            <div class="page-back">
+                <div class="page-image" style="background-image: url('image.jpg');"></div>
+            </div>
+        </div>
+
+        <!-- 第七页 -->
+        <div class="book-cover one-page">
+            <!-- 第六页正面 - 显示第五首诗 -->
+            <div class="page-front">
+                <div class="page-content">
+                    <h2>Windy Day</h2>
+                    <p>Snowflakes dance on silent ground,<br>
+                        Soft and slow, they make no sound.</p>
+                </div>
+            </div>
+
+            <!-- 第七页背面 - 显示第七张图 -->
+            <div class="page-back">
+                <div class="page-image" style="background-image: url('image.jpg');"></div>
+            </div>
+        </div>
+
+        <!-- 封底 -->
+        <div class="book-cover one-page">
+            <div class="back-cover-front">
+                <div class="back-cover-content">
+                    <p>© 2025 poem</p>
+                </div>
+            </div>
+            <div class="back-cover-back"></div>
+        </div>
+    </div>
+
+    <div id="control">
+        <button>&lt;</button>
+        <button>&gt;</button>
+    </div>
+
+    <div id="physics-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;"></div>
+    <script src="cloud-effects.js"></script>
+    <script src="script.js"></script>
+   
+
+</body>
+</html>
